@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './theme.css'
-import { RouterProvider} from 'react-router-dom'
+import {RouterProvider} from 'react-router-dom'
 import router from './router'
+import store from './store'
+import {Provider} from "react-redux";
 import sum from '@/test'
+
 const total = sum(1, 3)
 
 console.log(total)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+  <Provider store={store}>
+    <RouterProvider router={router}/>
+  </Provider>
 );
